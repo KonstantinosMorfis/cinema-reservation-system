@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DigitalCinema</title>
+        <link rel="stylesheet" href="../static/home_styles.css">
+    </head>
+    <body>
+        <header><b><div class="library">DigitalCinema</b><div class="topnav">
+          <form action="" method="post">
+            <input type="submit" name="Login" value="Login" />
+          </form>
+
+          <form action="" method="post">
+            <input type="submit" name="Register" value="Register" />
+          </form>
+
+            
+          </div></header>
+          <movies>
+            <table align="left">
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul style="color:#fe7200" class=flashes>
+                  {% for message in messages %}
+                      {{ message }}
+                  {% endfor %}
+                </ul>
+               {% endif %}
+              {% endwith %}
+                <tr>
+                  {% for header in headings %}
+                  <th>{{ header }}</th>
+                  {% endfor %}
+                </tr>
+                {% for row in data %}
+                <tr>
+                  {% for cell in row %}
+                  <td>{{ cell }}</td>
+                  {% endfor %}
+                  <td>
+                    <form action="" method="post">
+                      <input class="Buy Ticket" type="submit" name="buy" value= "Buy Ticket" class="btn"/>
+                    </form>
+                  </td>
+                </tr>
+
+                {% endfor %}
+            </table> 
+        </movies>  
+        <footer>Email: DigitalCinema@gmail.com</footer>
+    </body>
+</html>

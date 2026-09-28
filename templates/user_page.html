@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DigitalCinema</title>
+        <link rel="stylesheet" href="../static/user_page.css">
+    </head>
+    <body>
+        <header><b><div class="library">DigitalCinema</b><div class="topnav">
+
+          <form action="" method="post">
+            <input class="logout" type="submit" name="logout" value="Logout" class="btn"/>
+          </form>
+          
+          <text>👤 User: {{ username }}</text>
+            
+          </div></header>
+
+          <table >
+            <tr>
+              {% for header in headings_users %}
+              <th>{{ header }}</th>
+              {% endfor %}
+            </tr>
+            {% for row in users_data %}
+            <tr>
+              {% for cell in row %}
+              
+              <td>{{ cell }}</td>
+              
+              {% endfor %}
+              
+            
+            {% endfor %}
+
+            
+          </table>
+          <form action="" class = "form" method="post">
+            <label for="book ticket">Book Ticket</label>
+            <input id="movie_title_to_book" name="movie_title_to_book" type="text" placeholder="Movie Title" class="field" required/>
+            <input id="ticket_number" name="ticket_number" type="text" placeholder="Ticket Number" class="field" required/>
+            <input type="submit" name="book_ticket" value="Book Ticket" class="btn">
+  
+            {% if message  %}
+               <b>{{ message }}</b>
+            {% endif %}
+          </form>
+          
+          <table align="right" class="table2">
+            <h1 class="Reserve">Reservations</h1>
+            <tr>
+              {% for header in headings_users1 %}
+              <th>{{ header }}</th>
+              {% endfor %}
+            </tr>
+            {% for row in users_data1 %}
+            <tr>
+              {% for cell in row %}
+              
+              <td>{{ cell }}</td>
+              
+              {% endfor %}
+              
+            
+            {% endfor %}
+          </table>
+          
+
+
+        <footer>Email: DigitalCinema@gmail.com</footer>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DigitalCinema</title>
+        <link rel="stylesheet" href="../static/movie_management_page.css">
+    </head>
+    <body>
+        <header><b><div class="library">DigitalCinema</b><div class="topnav">
+
+          <form action="" method="post">
+            <input class="logout" type="submit" name="logout" value="Logout" class="btn"/>
+          </form>
+          
+          <text>👤 Admin: {{ username }}</text>
+
+          <form action="" method="post">
+            <input class="back" type="submit" name= "back" value="Back" class="btn"/>
+          </form>
+          
+          </div></header>
+          
+          <h1>Movies</h1>
+          <table >
+            <tr>
+              {% for header in headings_users %}
+              <th>{{ header }}</th>
+              {% endfor %}
+            </tr>
+            {% for row in users_data %}
+            <tr>
+              {% for cell in row %}
+              
+              <td>{{ cell }}</td>
+              
+              {% endfor %}
+              
+            
+            {% endfor %}
+
+          </table>
+        
+        <form class = "form" name="form" method="post">
+          <label for="movie_title">Insert Movie</label>
+          <input id="movie_title" name="movie_title" type="text" placeholder="Movie Title" class="field" required/>
+
+          <input id="movie_duration" name="movie_duration" type="text" placeholder="Movie Duration" class="field" required/>
+
+          <input id="movie_year_of_production" name="movie_year_of_production" type="text" placeholder="Movie Year Of Production" class="field" required/>
+
+          <input type="submit" name="add_movie" value="Add Movie" class="btn">
+
+        </form>
+
+        <form class = "form" name="update" method="post">
+          <label for="movie_title">Update Movie</label>
+          <input id="movie_title_up" name="movie_title_up" type="text" placeholder="Movie Title" class="field" required/>
+
+          <input id="movie_duration__up" name="movie_duration_up" type="text" placeholder="Movie Duration" class="field" required/>
+
+          <input id="movie_year_of_production_up" name="movie_year_of_production_up" type="text" placeholder="Movie Year Of Production" class="field" required/>
+
+          <input type="submit" name="update_movie" value="Update Movie" class="btn">
+
+        </form>
+
+        <form action="" class = "form" method="post">
+          <label for="movie_title">Delete Movie</label>
+          <input id="movie_title_to_del" name="movie_title_to_del" type="text" placeholder="Movie Title" class="field" required/>
+          <input type="submit" name="delete" value="Delete Movie" class="btn">
+
+          {% if message  %}
+             <b>{{ message }}</b>
+          {% endif %}
+
+        </form>
+
+        <footer>Email: DigitalCinema@gmail.com</footer>
+    </body>
+</html>

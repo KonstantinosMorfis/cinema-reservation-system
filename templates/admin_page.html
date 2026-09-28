@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DigitalCinema</title>
+        <link rel="stylesheet" href="../static/admin_page_styles.css">
+    </head>
+    <body>
+        <header><b><div class="library">DigitalCinema</b><div class="topnav">
+
+          <form action="" method="post">
+            <input class="logout" type="submit" name="logout" value="Logout" class="btn"/>
+          </form>
+          
+          <text>👤 Admin: {{ username }}</text>
+          
+          </div></header>
+        
+        <requests >
+            
+
+            <div class="container">
+                <h1>Requests</h1>
+
+
+                <form action="" method="post">
+                  <input class="user_management" type="submit" name= "user_management" value="User Management" class="btn"/>
+                </form>
+
+                <form action="" method="post">
+                  <input class="movie_management" type="submit" name= "movie_management" value="Movie Management" class="btn"/>
+                </form>
+            
+            </div>
+              
+            <table>
+                <tr>
+                  {% for header in headings %}
+                  <th>{{ header }}</th>
+                  {% endfor %}
+                </tr>
+                {% for row in data %}
+                <tr>
+                  {% for cell in row %}
+                  
+                  <td>{{ cell }}</td>
+                  
+                  {% endfor %}
+                  
+                
+                {% endfor %}
+                
+            </table>
+
+        <requests>
+
+          <form action="" class = "form" method="post">
+          
+            <input id="request_username" name="request_username" type="text" placeholder="Username" class="field" required/>
+  
+            <input type="submit" name="approve" value="Approve" class="btn">
+            <input type="submit" name="reject" value="Reject" class="btn">
+  
+            {% if message  %}
+               <b>{{ message }}</b>
+            {% endif %}
+  
+          </form>
+           
+        <footer>Email: DigitalCinema@gmail.com</footer>
+    </body>
+</html>
